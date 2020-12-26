@@ -3,6 +3,7 @@ import './VideoItem.css';
 
 const VideoItem = ({ video , onVideoSelect}) => {
   return (
+    // not just onClick={onVideoSelect} but with an arrow function because we want to pass a video to the callback
     <div onClick={() => onVideoSelect(video)} className="video-item item">
       <img  alt={video.snippet.title} className="ui image" src={video.snippet.thumbnails.medium.url} />
       <div className="content">
