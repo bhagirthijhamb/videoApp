@@ -5,8 +5,10 @@ import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 
 class App extends React.Component {
+  // state = { videos: null, selectedVideo: null } // cannot accesss this.state.videos.length property
   state = { videos: [], selectedVideo: null }
 
+  // only for making a default search when the compoennt first mounts to the screen
   componentDidMount(){
     this.onTermSubmit('plants');
   }
@@ -21,6 +23,8 @@ class App extends React.Component {
       }
     })
     console.log(response.data.items)
+    // set the received videos as state on the app component
+    // this will allow App component to update itself/ rerender itself. Which is going to allow us to render those newly fetched videos out as a list to the screen
     this.setState({ 
       videos: response.data.items,
       selectedVideo: response.data.items[0]
